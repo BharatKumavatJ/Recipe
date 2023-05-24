@@ -1,5 +1,7 @@
 package com.example.Recipe.Controller;
 
+import com.example.Recipe.DTO.ResponseDto.UserLoginResponseDto;
+import com.example.Recipe.DTO.UserLoginDto;
 import com.example.Recipe.DTO.UserRegistrationDto;
 import com.example.Recipe.DTO.UserResponseDto;
 import com.example.Recipe.Service.UserService;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 
-@Controller
+@RestController
 @RequestMapping("/registration")
 public class UserController {
 
@@ -32,8 +34,12 @@ public class UserController {
     @GetMapping("/getuser")
     public ResponseEntity getUser(){
         ArrayList<User> listOfUsers = userService.getUsers();
-
         return new ResponseEntity<>(listOfUsers, HttpStatus.FOUND);
+    }
 
+    @PostMapping("/login")
+    public ResponseEntity loginUser(@RequestBody UserLoginDto userLoginDto){
+       UserLoginResponseDto userValidation  = userService.ValidateUser(userLoginDto);
+       return new ResponseEntity(userValidation, HttpStatus.OK);
     }
 }
