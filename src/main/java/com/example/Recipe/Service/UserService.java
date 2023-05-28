@@ -15,4 +15,8 @@ public interface UserService {
     ArrayList<User> getUsers();
 
     UserLoginResponseDto ValidateUser(UserLoginDto userLoginDto);
+
+    User isUserExist(String email);
+
+    String updatePassword(User user);
 }

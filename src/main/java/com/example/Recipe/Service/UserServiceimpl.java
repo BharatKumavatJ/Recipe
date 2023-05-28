@@ -76,6 +76,23 @@ public class UserServiceimpl implements UserService{
         }
     }
 
+    @Override
+    public User isUserExist(String email) {
+        User userFromDatabase = userRepository.findByEmail(email);
+        return userFromDatabase;
+    }
+
+    @Override
+    public String updatePassword(User user) {
+        User userInDatabase  = userRepository.findByEmail(user.getEmail());
+        if (userInDatabase!= null) {
+            userInDatabase.setPassword(passwordEncoder.encode(user.getPassword()));
+            userRepository.save(userInDatabase);
+            return "Password Updated SuccessFully";
+        }else{
+            return "User Not Found";
+        }
+    }
 
 }
 

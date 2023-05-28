@@ -1,6 +1,6 @@
 spring.datasource.url = jdbc:mysql://localhost:3306/recipe?useSSL=false
-spring.datasource.username = <username>
-spring.datasource.password = <password>
+spring.datasource.username = root
+spring.datasource.password = redhat
 
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL57Dialect
 spring.jpa.hibernate.ddl-auto = update
@@ -13,15 +13,15 @@ spring.jpa.show-sql=true
 
 logging.level.org.hibernate.SQL = DEBUG
 
-spring.security.user.name=<username>
-spring.security.user.password=<password>
+spring.security.user.name=root
+spring.security.user.password=redhat
 
 
 #Mail configuration
 
 spring.mail.host=smtp.gmail.com
 spring.mail.port=587
-spring.mail.username=<sender emial>
-spring.mail.password=<Smtp password / allowed app password>
+spring.mail.username=bharatpersonal1709@gmail.com
+spring.mail.password=subskkytvplzboxg
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true

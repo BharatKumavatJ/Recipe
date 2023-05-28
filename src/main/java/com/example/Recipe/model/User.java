@@ -20,6 +20,9 @@ public class User {
     private String password;
     private String email;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private PasswordResetToken passwordResetToken;
+
     //    cascade Applicable to its child also operation being performed
 //    many to many relationship creates new table
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
