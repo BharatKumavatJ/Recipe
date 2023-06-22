@@ -1,5 +1,6 @@
 package com.example.Recipe.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,7 +25,8 @@ public class Nutrition {
     private String carbohydrates;
 
 
-//    @OneToOne(targetEntity = Recipe.class, fetch = FetchType.EAGER)
-//    @JoinColumn(nullable = false, name = "recipe_id")
-//    private Recipe recipe;
+    @OneToOne(mappedBy = "nutrition")
+    @JsonIgnoreProperties("nutrition")
+    private Recipe recipe;
+
 }
