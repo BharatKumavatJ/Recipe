@@ -11,6 +11,8 @@ import com.example.Recipe.model.Instruction;
 import com.example.Recipe.model.Nutrition;
 import com.example.Recipe.model.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -65,4 +67,11 @@ public class RecipeController {
         return recipeService.getRecipesByLowestCookingTime();
     }
 
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteRecipeById(@PathVariable Long id) {
+        recipeService.deleteRecipeById(id);
+        return new ResponseEntity<>("Recipe Deleted", HttpStatus.OK);
+    }
 }

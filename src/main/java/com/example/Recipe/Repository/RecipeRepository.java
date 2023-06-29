@@ -16,4 +16,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
 
     List<Recipe> findAllByOrderByCookingTimeAsc();
+
+    void deleteById(Long id);
 }
