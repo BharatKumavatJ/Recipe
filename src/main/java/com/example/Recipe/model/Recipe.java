@@ -2,7 +2,6 @@ package com.example.Recipe.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
 
@@ -21,6 +20,7 @@ public class Recipe {
     private String category;
     private Integer preparationTime;
     private Integer cookingTime;
+    private String imageUrl;
 
 
     @OneToOne(cascade = CascadeType.ALL)
