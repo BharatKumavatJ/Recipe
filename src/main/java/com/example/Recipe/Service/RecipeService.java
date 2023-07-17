@@ -38,4 +38,7 @@ public class RecipeService {
         recipeRepository.deleteById(id);
     }
 
+    public Optional<Recipe> getRecipeById(Long id){
+        return recipeRepository.findById(id);
+    }
 }

@@ -7,11 +7,8 @@ import com.example.Recipe.Repository.InstructionRepository;
 import com.example.Recipe.Repository.NutritionRepository;
 import com.example.Recipe.Repository.RecipeRepository;
 import com.example.Recipe.Service.RecipeService;
-import com.example.Recipe.model.Instruction;
-import com.example.Recipe.model.Nutrition;
 import com.example.Recipe.model.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -68,7 +65,10 @@ public class RecipeController {
     }
 
 
-
+    @GetMapping("/getById")
+    public Optional<Recipe> getRecipeById(@RequestParam Long id){
+        return recipeService.getRecipeById(id);
+    }
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteRecipeById(@PathVariable Long id) {
         recipeService.deleteRecipeById(id);
